@@ -1,0 +1,6 @@
+import _ from "lodash"
+import { Name } from "./types"
+
+export const sortByPopularity = (data: Name[]) => {
+  return _.orderBy(data, ["amount", "name"], ["desc"])
+}
