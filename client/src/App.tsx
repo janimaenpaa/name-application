@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Card } from "./components/Card"
 import { Container } from "./components/Container"
+import { NameGrid } from "./components/NameGrid"
 import { NavBar } from "./components/NavBar"
 import { Name } from "./types"
 
@@ -25,11 +25,7 @@ const App: React.FC = () => {
   return (
     <Container>
       <NavBar />
-      <Container>
-        {names.map((item, index) => (
-          <Card key={index}>{item.name}</Card>
-        ))}
-      </Container>
+      <NameGrid names={names} />
     </Container>
   )
 }

@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-interface Props {}
-
 const Header = styled.h3`
   color: #e43f5a;
   margin: 1rem 1rem 1rem 2rem;
@@ -16,12 +14,15 @@ const Bar = styled.div`
   background-color: #1b1b2f;
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
 `
 
-export const NavBar = (props: Props) => {
+interface Props {}
+
+export const NavBar: React.FC<Props> = () => {
   return (
     <Bar>
-      <Header>Name Application</Header>
+      <Header>name-application</Header>
     </Bar>
   )
 }
