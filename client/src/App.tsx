@@ -25,9 +25,11 @@ const App: React.FC = () => {
   return (
     <Container>
       <NavBar />
-      {names.map((item, index) => (
-        <Card key={index}>{item.name}</Card>
-      ))}
+      <Container>
+        {names.map((item, index) => (
+          <Card key={index}>{item.name}</Card>
+        ))}
+      </Container>
     </Container>
   )
 }

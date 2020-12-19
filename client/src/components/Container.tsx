@@ -7,9 +7,10 @@ interface Props {
 
 const StyledContainer = styled.div`
   display: flex;
-  background-color: #162447;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
 `
 
 export const Container: React.FC<Props> = ({ children }) => {
