@@ -10,17 +10,26 @@ const App: React.FC = () => {
   const [names, setNames] = useState<Name[] | null>(null)
 
   useEffect(() => {
-    const fetchNames = () =>
-      fetch("http://localhost:3001/api/names")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          setNames(data)
-        })
-        .catch((error) => console.log(error))
-
-    fetchNames()
+    fetchNamesByPopularity()
   }, [])
+
+  const fetchNamesByPopularity = () =>
+    fetch("http://localhost:3001/api/names")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setNames(data)
+      })
+      .catch((error) => console.log(error))
+
+  const fetchNamesByAlphabeticalOrder = () =>
+    fetch("http://localhost:3001/api/names/alphabetical")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setNames(data)
+      })
+      .catch((error) => console.log(error))
 
   if (!names) return <Container>Loading...</Container>
 
@@ -28,7 +37,10 @@ const App: React.FC = () => {
     <Container>
       <NavBar />
       <GridContainer>
-        <SortBar />
+        <SortBar
+          fetchNamesByPopularity={fetchNamesByPopularity}
+          fetchNamesByAlphabeticalOrder={fetchNamesByAlphabeticalOrder}
+        />
         <NameGrid names={names} />
       </GridContainer>
     </Container>

@@ -30,13 +30,19 @@ const Button = styled.button`
   }
 `
 
-interface Props {}
+interface Props {
+  fetchNamesByPopularity: () => Promise<void>
+  fetchNamesByAlphabeticalOrder: () => Promise<void>
+}
 
-export const SortBar: React.FC<Props> = () => {
+export const SortBar: React.FC<Props> = ({
+  fetchNamesByPopularity,
+  fetchNamesByAlphabeticalOrder,
+}) => {
   return (
     <Bar>
-      <Button>Largest</Button>
-      <Button>Alphabetical</Button>
+      <Button onClick={fetchNamesByPopularity}>Largest</Button>
+      <Button onClick={fetchNamesByAlphabeticalOrder}>Alphabetical</Button>
       <Button>Total</Button>
       <Button>Find</Button>
     </Bar>
