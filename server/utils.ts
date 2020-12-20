@@ -12,3 +12,7 @@ export const sortAlphabetically = (data: Name[]) => {
 export const getTotal = (data: Name[]) => {
   return _.sumBy(data, "amount")
 }
+
+export const findByName = (data: Name[], name: string) => {
+  return Object.values(data).find((d) => d.name === name)
+}
