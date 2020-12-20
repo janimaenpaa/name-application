@@ -8,3 +8,7 @@ export const sortByPopularity = (data: Name[]) => {
 export const sortAlphabetically = (data: Name[]) => {
   return _.orderBy(data, ["name"])
 }
+
+export const getTotal = (data: Name[]) => {
+  return _.sumBy(data, "amount")
+}
