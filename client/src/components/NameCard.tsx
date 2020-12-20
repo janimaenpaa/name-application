@@ -18,7 +18,7 @@ export const NameCard: React.FC<Props> = ({ item }) => {
     <Card
       style={{
         flex: 1,
-        minWidth: "30%",
+        minWidth: "20%",
         maxWidth: "100%",
         margin: 10,
         justifyContent: "center",

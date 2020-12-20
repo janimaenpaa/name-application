@@ -9,12 +9,10 @@ interface Props {
 
 export const NameGrid: React.FC<Props> = ({ names }) => {
   return (
-    <Container>
-      <CardDeck style={{ justifyContent: "center" }}>
-        {names.map((item, index) => (
-          <NameCard key={index} item={item} />
-        ))}
-      </CardDeck>
-    </Container>
+    <CardDeck style={{ justifyContent: "center", margin: 0 }}>
+      {names.map((item, index) => (
+        <NameCard key={index} item={item} />
+      ))}
+    </CardDeck>
   )
 }

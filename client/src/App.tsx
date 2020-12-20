@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
+import { Container as GridContainer } from "react-bootstrap"
 import { Container } from "./components/Container"
 import { NameGrid } from "./components/NameGrid"
 import { NavBar } from "./components/NavBar"
+import { SortBar } from "./components/SortBar"
 import { Name } from "./types"
 
 const App: React.FC = () => {
@@ -25,7 +27,10 @@ const App: React.FC = () => {
   return (
     <Container>
       <NavBar />
-      <NameGrid names={names} />
+      <GridContainer>
+        <SortBar />
+        <NameGrid names={names} />
+      </GridContainer>
     </Container>
   )
 }
