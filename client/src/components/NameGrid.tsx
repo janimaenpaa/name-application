@@ -1,5 +1,5 @@
 import React from "react"
-import { CardDeck, Container } from "react-bootstrap"
+import { CardDeck } from "react-bootstrap"
 import { Name } from "../types"
 import { NameCard } from "./NameCard"
 
