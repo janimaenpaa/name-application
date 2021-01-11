@@ -6,12 +6,15 @@ import { NameGrid } from "./components/NameGrid"
 import { NavBar } from "./components/NavBar"
 import { SortBar } from "./components/SortBar"
 import { Name } from "./types"
+import { TotalCard } from "./components/TotalCard"
 
 const App: React.FC = () => {
   const [names, setNames] = useState<Name[] | null>(null)
+  const [total, setTotal] = useState<number | null>(null)
 
   useEffect(() => {
     fetchNamesByPopularity()
+    getTotalNames()
   }, [])
 
   const fetchNamesByPopularity = () =>
@@ -32,6 +35,15 @@ const App: React.FC = () => {
       })
       .catch((error) => console.log(error))
 
+  const getTotalNames = () =>
+    fetch("http://localhost:3001/api/names/total")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setTotal(data.total)
+      })
+      .catch((error) => console.log(error))
+
   if (!names) return <Container>Loading...</Container>
 
   return (
@@ -45,6 +57,7 @@ const App: React.FC = () => {
           />
           <Switch>
             <Route exact path="/" render={() => <NameGrid names={names} />} />
+            <Route path="/total" render={() => <TotalCard total={total} />} />
           </Switch>
         </GridContainer>
       </Container>

@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 const Bar = styled.div`
@@ -28,12 +29,18 @@ const Button = styled.button`
   border-radius: 10px;
   color: #fff;
   text-align: center;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 5px;
+  padding: 8px;
 
   &:hover {
     background-color: #e43f5a;
+  }
+`
+
+const StyledLink = styled.div`
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
   }
 `
 
@@ -48,10 +55,24 @@ export const SortBar: React.FC<Props> = ({
 }) => {
   return (
     <Bar>
-      <Button onClick={fetchNamesByPopularity}>Largest</Button>
-      <Button onClick={fetchNamesByAlphabeticalOrder}>Alphabetical</Button>
-      <Button>Total</Button>
-      <Button>Find</Button>
+      <Button onClick={fetchNamesByPopularity}>
+        <StyledLink>
+          <Link to="/">Largest</Link>
+        </StyledLink>
+      </Button>
+      <Button onClick={fetchNamesByAlphabeticalOrder}>
+        <StyledLink>
+          <Link to="/">Alphabetical</Link>
+        </StyledLink>
+      </Button>
+      <Button>
+        <StyledLink>
+          <Link to="/total">Total</Link>
+        </StyledLink>
+      </Button>
+      <Button>
+        <StyledLink><Link to="/find">Find</Link></StyledLink>
+      </Button>
     </Bar>
   )
 }
