@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Container as GridContainer } from "react-bootstrap"
 import { Container } from "./components/Container"
 import { NameGrid } from "./components/NameGrid"
@@ -34,16 +35,20 @@ const App: React.FC = () => {
   if (!names) return <Container>Loading...</Container>
 
   return (
-    <Container>
-      <NavBar />
-      <GridContainer>
-        <SortBar
-          fetchNamesByPopularity={fetchNamesByPopularity}
-          fetchNamesByAlphabeticalOrder={fetchNamesByAlphabeticalOrder}
-        />
-        <NameGrid names={names} />
-      </GridContainer>
-    </Container>
+    <Router>
+      <Container>
+        <NavBar />
+        <GridContainer>
+          <SortBar
+            fetchNamesByPopularity={fetchNamesByPopularity}
+            fetchNamesByAlphabeticalOrder={fetchNamesByAlphabeticalOrder}
+          />
+          <Switch>
+            <Route exact path="/" render={() => <NameGrid names={names} />} />
+          </Switch>
+        </GridContainer>
+      </Container>
+    </Router>
   )
 }
 
