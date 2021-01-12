@@ -7,8 +7,10 @@ import { NavBar } from "./components/NavBar"
 import { SortBar } from "./components/SortBar"
 import { Name } from "./types"
 import { TotalCard } from "./components/TotalCard"
+import { FindCard } from "./components/FindCard"
 
 const App: React.FC = () => {
+  const [name, setName] = useState<string | null>(null)
   const [names, setNames] = useState<Name[] | null>(null)
   const [total, setTotal] = useState<number | null>(null)
 
@@ -44,6 +46,19 @@ const App: React.FC = () => {
       })
       .catch((error) => console.log(error))
 
+  const findName = () =>
+    fetch("http://localhost:3001/api/names", {
+      method: "POST",
+      body: JSON.stringify({ name }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error))
+
+  const handleNameChange = (event: any) => {
+    setName(event.target.name)
+  }
+
   if (!names) return <Container>Loading...</Container>
 
   return (
@@ -58,6 +73,10 @@ const App: React.FC = () => {
           <Switch>
             <Route exact path="/" render={() => <NameGrid names={names} />} />
             <Route path="/total" render={() => <TotalCard total={total} />} />
+            <Route
+              path="/find"
+              render={() => <FindCard handleChange={handleNameChange} />}
+            />
           </Switch>
         </GridContainer>
       </Container>
