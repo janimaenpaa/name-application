@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Card } from "react-bootstrap"
 import { Name } from "../types"
 
-const NameHeader = styled.span`
+const NameHeader = styled.h4`
   color: #e43f5a;
   font-weight: 700;
   font-size: 2rem;

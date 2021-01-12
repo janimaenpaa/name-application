@@ -6,5 +6,12 @@ interface Props {
 }
 
 export const TotalCard: React.FC<Props> = ({ total }) => {
-  return <Card style={{ margin: 4, marginTop: 24 }}><h3>{total}</h3></Card>
+  return (
+    <Card style={{ margin: 4, marginTop: 24 }}>
+      <Card.Body style={{ textAlign: "center" }}>
+        <h2>{total}</h2>
+        <h3>names found</h3>
+      </Card.Body>
+    </Card>
+  )
 }
