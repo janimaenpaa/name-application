@@ -11,6 +11,7 @@ import {
 const app = express()
 app.use(cors())
 app.use(json())
+app.use(express.static('client/build'))
 
 const PORT = 3001
 

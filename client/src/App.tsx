@@ -19,7 +19,7 @@ const App: React.FC = () => {
   }, [])
 
   const fetchNamesByPopularity = () =>
-    fetch("http://localhost:3001/api/names")
+    fetch("/api/names")
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
@@ -28,7 +28,7 @@ const App: React.FC = () => {
       .catch((error) => console.log(error))
 
   const fetchNamesByAlphabeticalOrder = () =>
-    fetch("http://localhost:3001/api/names/alphabetical")
+    fetch("/api/names/alphabetical")
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
@@ -37,7 +37,7 @@ const App: React.FC = () => {
       .catch((error) => console.log(error))
 
   const getTotalNames = () =>
-    fetch("http://localhost:3001/api/names/total")
+    fetch("/api/names/total")
       .then((response) => response.json())
       .then((data) => {
         console.log(data)

@@ -6,8 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev server/index.ts",
-    "lint": "eslint --ext .ts .",
-    "start": "node build/index.js"
+    "start": "npm run tsc && node build/index.js"
   },
   "keywords": [],
   "author": "",

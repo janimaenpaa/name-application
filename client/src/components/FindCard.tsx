@@ -12,7 +12,7 @@ export const FindCard: React.FC<Props> = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault()
 
-    fetch("http://localhost:3001/api/names", {
+    fetch("/api/names", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
